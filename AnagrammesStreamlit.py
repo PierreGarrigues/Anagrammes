@@ -58,7 +58,7 @@ def ressemblance(string_, ress_level):
             
         if nombre_bonnes_réponses_90 == 0:
             func_html.write(f"Désolé, je ne trouve aucun anagramme pour ce mot !")
-            func_html.write(f'\nVous pouvez essayer de réduire le taux de matching minimal.')
+            func_html.write(f'\nVous pouvez essayer de réduire le pourcentage de ressemblance.')
             
         else:
             func_html.write('\nEt voilà !')
