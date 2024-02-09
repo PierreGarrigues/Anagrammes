@@ -37,15 +37,19 @@ def ressemblance(string_, ress_level):
     
    
     else:
-        func_html.write(f'Je ne trouve aucun anagramme parfait pour "{string_}".\nCherchons les mots qui y ressemblent à au moins {ress_level}% !\n')
+        
         nombre_bonnes_réponses_90 = 0
+        written_message = 0
         for index, row in enumerate(dico['Listes']):        
             check_90 = difflib.SequenceMatcher(None,new_string,row).ratio()*100 >= ress_level           
         
                 
             if check_90 is True:
-                nombre_bonnes_réponses_90 +=1            
-                
+                nombre_bonnes_réponses_90 +=1 
+                if written_message == 0:
+                    func_html.write(f'Je ne trouve aucun anagramme parfait pour "{string_}".')
+                    func_html.write(f'\nVoici les mots qui y ressemblent à au moins {ress_level}% !\n')
+                    written_message +=1
                 func_html.write(f"- {dico['Mot'][index].capitalize()} (Ressemblance = {int(round(difflib.SequenceMatcher(None, new_string, row).ratio()*100,0))}%)\n")
             
             
@@ -53,7 +57,8 @@ def ressemblance(string_, ress_level):
                 pass
             
         if nombre_bonnes_réponses_90 == 0:
-            func_html.write(f"Désolé, je ne trouve aucun anagramme pour ce mot !\nVous pouvez essayer de réduire le taux de matching minimal.")
+            func_html.write(f"Désolé, je ne trouve aucun anagramme pour ce mot !")
+            func_html.write(f'\nVous pouvez essayer de réduire le taux de matching minimal.')
             
         else:
             func_html.write('\nEt voilà !')
