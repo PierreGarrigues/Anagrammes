@@ -28,7 +28,7 @@ def ressemblance(string_, ress_level):
     func_html = open("résultat.html","w") 
 
     #Liste résultats parfaits
-    if new_string in dico['Listes'].unique()
+    if new_string in dico['Listes'].unique():
         string_unique = string_.lower()
         liste_parf = list(dico[dico.Listes == new_string].Mot.values)
         liste_parf.remove(str(string_).lower())
