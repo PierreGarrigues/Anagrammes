@@ -31,6 +31,8 @@ def ressemblance(string_, ress_level):
     string_unique = string_.lower()
     liste_parf = list(dico[dico.Listes == new_string].Mot.values)
     liste_parf.remove(str(string_).lower())
+    for i in liste_parf:
+        liste_parf[i] = liste_parf[i].capitalize()
     #liste_parf = [i.capitalize() for i in list_parf]
     
     if new_string in dico['Listes'].unique() and len(liste_parf) > 0:        
