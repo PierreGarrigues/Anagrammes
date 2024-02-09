@@ -6,8 +6,8 @@ import string
 
 
 
-dico1 = pd.read_csv(r"C:\Users\pierr\Downloads\dico1.csv")
-dico2 = pd.read_csv(r"C:\Users\pierr\Downloads\dico2.csv")
+dico1 = pd.read_csv("dico_uno.csv")
+dico2 = pd.read_csv("dico_duo.csv")
 dico = pd.concat([dico1, dico2], ignore_index=True, axis=0)
 
 
