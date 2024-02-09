@@ -24,14 +24,15 @@ def ressemblance(string_, ress_level):
     new_string = sorted(list(new_string))
     new_string = ''.join(new_string)
     
-    
+    #Résultat final
+    func_html = open("résultat.html","w") 
    
     
     if new_string in dico['Listes'].unique():
         liste_parf = dico[dico.Listes == new_string].Mot.values
         #liste_parf.tolist().remove(string_)
-        result = f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}"
-        return result
+        result_perf = f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}"
+        func_html.write(f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}")
       
     
    
@@ -43,23 +44,25 @@ def ressemblance(string_, ress_level):
         
                 
             if check_90 is True:
-                nombre_bonnes_réponses_90 +=1
+                nombre_bonnes_réponses_90 +=1            
                 
-                result = f"- {dico['Mot'][index].capitalize()} (Ressemblance = {int(round(difflib.SequenceMatcher(None, new_string, row).ratio()*100,0))}%)"
-                return result
+                func_html.write(f"- {dico['Mot'][index].capitalize()} (Ressemblance = {int(round(difflib.SequenceMatcher(None, new_string, row).ratio()*100,0))}%)")
             
             
             else:
                 pass
             
         if nombre_bonnes_réponses_90 == 0:
-            result = f"Désolé, je ne trouve aucun anagramme pour ce mot !\nVous pouvez essayer de réduire le taux de matching minimal."
-            return result
+            func_html.write(f"Désolé, je ne trouve aucun anagramme pour ce mot !\nVous pouvez essayer de réduire le taux de matching minimal.")
+            
         else:
-            print('Et voilà !')
+            func_html.write('Et voilà !')
             
 
-    
+    func_html.close()
+    HTMLFile = open("résultat.html","r")
+    result_final = HTMLFile.read()
+    return result_final
     
     
 
