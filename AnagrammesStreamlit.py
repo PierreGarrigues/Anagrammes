@@ -37,7 +37,7 @@ def ressemblance(string_, ress_level):
     
     if new_string in dico['Listes'].unique() and len(liste_parf) > 0:        
        
-        result_perf = f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}"
+        result_perf = f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {',\n '.join(liste_parf)}"
         func_html.write(f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}")
       
     
