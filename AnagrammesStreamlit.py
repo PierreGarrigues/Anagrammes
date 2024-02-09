@@ -46,7 +46,7 @@ def ressemblance(string_, ress_level):
             if check_90 is True:
                 nombre_bonnes_réponses_90 +=1            
                 
-                func_html.write(f"- {dico['Mot'][index].capitalize()} (Ressemblance = {int(round(difflib.SequenceMatcher(None, new_string, row).ratio()*100,0))}%)<br />")
+                func_html.write(f"- {dico['Mot'][index].capitalize()} (Ressemblance = {int(round(difflib.SequenceMatcher(None, new_string, row).ratio()*100,0))}%)<br>\n")
             
             
             else:
