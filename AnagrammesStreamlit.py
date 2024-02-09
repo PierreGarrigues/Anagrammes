@@ -35,7 +35,8 @@ def ressemblance(string_, ress_level):
             liste_parf.remove(str(string_unique).lower())
         for i in range(len(liste_parf)):
             liste_parf[i] = liste_parf[i].capitalize()
-        if len(liste_parf) > 0:    
+            
+    if len(liste_parf) > 0:  
        
             func_html.write(f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}")
       
