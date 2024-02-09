@@ -75,7 +75,7 @@ def main():
     
     string_text = st.text_input("Ecrivez ici le ou les mots dont vous souhaitez découvrir les anagrammes !")
     percent = st.number_input("Pourcentage de ressemblance")
-    st.warning('Note : l'algorithme testera automatiquement la ressemblance parfaite, donc inutile d'inscrire "100" en guise de pourcentage de ressemblance. La plupart des mots trouveront des anagrammes imparfaits entre 85 et 91% de ressemblance.')
+    st.warning("Note : l'algorithme testera automatiquement la ressemblance parfaite, donc inutile d'inscrire "100" en guise de pourcentage de ressemblance. La plupart des mots trouveront des anagrammes imparfaits entre 85 et 91% de ressemblance.")
     if string_text and percent:
 
         st.write(ressemblance(string_text, percent))
