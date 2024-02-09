@@ -26,12 +26,13 @@ def ressemblance(string_, ress_level):
     
     #Résultat final
     func_html = open("résultat.html","w") 
-   
+
+    #Liste résultats parfaits
+    string_unique = string_.lower()
+    liste_parf = list(dico[dico.Listes == new_string].Mot.values)
+    liste_parf.remove(str(string_).lower())
     
-    if new_string in dico['Listes'].unique():
-        string_ = string_.lower()
-        liste_parf = list(dico[dico.Listes == new_string].Mot.values)
-        liste_parf.remove(str(string_).lower())
+    if new_string in dico['Listes'].unique() and len(liste_parf) > 0:        
        
         result_perf = f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}"
         func_html.write(f"Voici une liste des anagrammes parfaits de {string_.capitalize()} : {', '.join(liste_parf)}")
