@@ -47,7 +47,7 @@ def ressemblance(string_, ress_level):
             check_90 = difflib.SequenceMatcher(None,new_string,row).ratio()*100 >= ress_level           
         
                 
-            if check_90 is True and difflib.SequenceMatcher(None, new_string, row).ratio()*100,0 < 100:
+            if check_90 is True and difflib.SequenceMatcher(None, new_string, row).ratio()*100 < 100:
                 nombre_bonnes_réponses_90 +=1 
                 if written_message == 0:
                     func_html.write(f'Je ne trouve aucun anagramme parfait pour "{string_}".')
